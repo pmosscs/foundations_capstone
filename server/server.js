@@ -9,11 +9,18 @@ app.use(express.static('client'));
 
 
 /******** Client Files ***********/
-const { getHTML, getCSS, getJS } = require('./clientController');
+const { getHomeHTML, getCSS, getHomeJS, addHouseHTML, addHouseJS, myHousesHTML, myHousesJS, resourcesHTML, resourcesJS } = require('./clientController');
 
-app.get('/', getHTML);
+app.get('/', getHomeHTML);
 app.get('/css', getCSS);
-app.get('/js', getJS)
+app.get('/homejs', getHomeJS);
+app.get('/addhouse', addHouseHTML);
+app.get('/addhousejs', addHouseJS);
+app.get('/myhouses', myHousesHTML);
+app.get('/myhousesjs', myHousesJS);
+app.get('/resources', resourcesHTML);
+app.get('/resourcesjs', resourcesJS);
+
 
 
 
