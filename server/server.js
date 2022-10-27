@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 
@@ -21,6 +22,8 @@ app.get('/myhousesjs', myHousesJS);
 app.get('/resources', resourcesHTML);
 app.get('/resourcesjs', resourcesJS);
 
+
+/******** action endpoints **********/
 
 
 
