@@ -9,8 +9,9 @@ async function seed () {
         address VARCHAR(100),
         notes VARCHAR(500),
         img VARCHAR(255),
-        contaced BOOLEAN
+        contacted BOOLEAN
     );
+    
     `)
 }
 

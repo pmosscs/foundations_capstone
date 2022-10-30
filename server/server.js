@@ -15,15 +15,18 @@ const { getHomeHTML, getCSS, getHomeJS, addHouseHTML, addHouseJS, myHousesHTML, 
 app.get('/', getHomeHTML);
 app.get('/css', getCSS);
 app.get('/homejs', getHomeJS);
-app.get('/addhouse', addHouseHTML);
+app.get('/addhousepage', addHouseHTML);
 app.get('/addhousejs', addHouseJS);
-app.get('/myhouses', myHousesHTML);
+app.get('/myhousespage', myHousesHTML);
 app.get('/myhousesjs', myHousesJS);
-app.get('/resources', resourcesHTML);
+app.get('/resourcespage', resourcesHTML);
 app.get('/resourcesjs', resourcesJS);
 
 
 /******** action endpoints **********/
+let { addHouse, getAllHouses } = require('./controller')
+app.post('/api/addHouse', addHouse)
+app.get('/api/getHouses', getAllHouses)
 
 
 
