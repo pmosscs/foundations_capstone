@@ -109,6 +109,16 @@ module.exports = {
         `).then(dbRes => {
             res.status(200).send(dbRes[0])
         }).catch(err => console.log(err))
+    },
+
+    getAddresses: (req, res) => {
+        sequelize.query(`
+        SELECT * FROM houses
+        WHERE archived = FALSE;
+        `)
+        .then(dbRes => {
+            res.status(200).send(dbRes[0])
+        })
     }
 
 }

@@ -24,7 +24,7 @@ app.get('/resourcesjs', resourcesJS);
 
 
 /******** action endpoints **********/
-let { addHouse, getAllHouses, deleteHouse, getAllContactedHouses, changeContacted, undoContacted, archiveHouse, getArchived, undoArchive } = require('./controller')
+let { addHouse, getAllHouses, deleteHouse, getAllContactedHouses, changeContacted, undoContacted, archiveHouse, getArchived, undoArchive, getAddresses } = require('./controller')
 app.post('/api/addHouse', addHouse)
 app.get('/api/getHouses', getAllHouses)
 app.delete('/api/houses/:id', deleteHouse)
@@ -34,6 +34,7 @@ app.put('/api/houses/undo/:id', undoContacted)
 app.put('/api/houses/archive/:id', archiveHouse)
 app.get('/api/getArchived', getArchived)
 app.put('/api/houses/undoArchive/:id', undoArchive)
+app.get('/api/getAddresses', getAddresses)
 
 
 const port = process.env.PORT || 4005

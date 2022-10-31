@@ -8,3 +8,12 @@ body {
 img {
     height: 300px;
 }
+
+
+.archived-cards {
+    background-color: greenyellow;
+}
+
+.hidden {
+    display: none;
+}

@@ -2,9 +2,16 @@
 const housesDiv = document.querySelector('.house-cards')
 const contactedCard = document.querySelector('.contacted-cards')
 const archivedCards = document.querySelector('.archived-cards')
+const liveCards = document.querySelector('.house-cards')
+const vewArchivedBtn = document.querySelector('.view-btn')
+const goBackBtn = document.querySelector('.go-back')
+const getAddressesBtn = document.querySelector('.get-addresses')
+const addressesDiv = document.querySelector('.address-div')
+const goBack2Btn = document.querySelector('.go-back-2')
 
 
 /************* CREATE CARD FUNCTIONS *************/
+ // ^^^ Maybe use a drop down menu for updates like DNC, offer sent, offer accepted, no reply. What about names?
 function makeHouseCard (houses) {
     
     const houseHTMLElements = 
@@ -21,8 +28,6 @@ function makeHouseCard (houses) {
         <button onclick="contactedBtn(${houses['house_id']}, false)" id="contact-btn">Contacted</button>
     </div>
     `
-    // ^^^ Maybe use a drop down menu for updates like DNC, offer sent, offer accepted, no reply.
-
     return houseHTMLElements
 }
 
@@ -64,6 +69,14 @@ function makeArchivedCards(houses) {
     return archivedHTMLElements
 }
 
+function getAddressHTML (houses) {
+    const addressesHTML =
+    `
+    <h4>${houses['address']}</h4>
+    `
+    return addressesHTML
+}
+
 
 /************* GET FUNCTIONS ON LOAD *************/
 function getAllContactedHouses() {
@@ -93,6 +106,16 @@ function getArchivedHouses() {
             const house = res.data[i];
             const archivedHTML = makeArchivedCards(house)
             archivedCards.innerHTML += archivedHTML
+        }
+    })
+}
+
+function getAddress() {
+    axios.get('/api/getAddresses').then(res => {
+        for (let i = 0; i < res.data.length; i++) {
+            const house = res.data[i];
+            const addressHTML = getAddressHTML(house)
+            addressesDiv.innerHTML += addressHTML
         }
     })
 }
@@ -130,7 +153,50 @@ function undoArchive(id, change) {
 }
 
 
-/************* OTHER EVENTS *************/
+/************* EVENT FUNCTIONS *************/
+function viewArchived() {
+    archivedCards.classList.toggle('hidden')
+    contactedCard.classList.toggle('hidden')
+    liveCards.classList.toggle('hidden')
+    vewArchivedBtn.classList.toggle('hidden')
+    goBackBtn.classList.toggle('hidden')
+    getAddressesBtn.classList.toggle('hidden')    
+}
+
+function goBack() {
+    archivedCards.classList.toggle('hidden')
+    contactedCard.classList.toggle('hidden')
+    liveCards.classList.toggle('hidden')
+    vewArchivedBtn.classList.toggle('hidden')
+    goBackBtn.classList.toggle('hidden')
+    getAddressesBtn.classList.toggle('hidden')
+}
+
+function getAddresses() {
+    addressesDiv.classList.toggle('hidden')
+    contactedCard.classList.toggle('hidden')
+    liveCards.classList.toggle('hidden')
+    vewArchivedBtn.classList.toggle('hidden')
+    goBack2Btn.classList.toggle('hidden')
+    getAddressesBtn.classList.toggle('hidden')
+}
+
+function goBack2 () {
+    addressesDiv.classList.toggle('hidden')
+    contactedCard.classList.toggle('hidden')
+    liveCards.classList.toggle('hidden')
+    vewArchivedBtn.classList.toggle('hidden')
+    goBack2Btn.classList.toggle('hidden')
+    getAddressesBtn.classList.toggle('hidden')
+}
+
+
+
+/************* EVENT HANDLERS *************/
+vewArchivedBtn.addEventListener('click', viewArchived)
+goBackBtn.addEventListener('click', goBack)
+getAddressesBtn.addEventListener('click', getAddresses)
+goBack2Btn.addEventListener('click', goBack2)
 
 
 
@@ -138,3 +204,4 @@ function undoArchive(id, change) {
 getAllHouses()
 getAllContactedHouses()
 getArchivedHouses()
+getAddress()
