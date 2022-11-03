@@ -1,19 +1,354 @@
+/********** Accross all pages ************/
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
 body {
-    background-color: aqua;
+    background-color: #C1E0FF;
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #A7A7A7;
+    font-size: 50px;
+}
+
+.main-p {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #A7A7A7;
+    font-size: 25px;
+}
+
+.page-container {
     display: flex;
-    align-items: center;
+    justify-content: center;
+}
+
+main {
+    width: 80%;
+    display: flex;
     flex-direction: column;
 }
 
-img {
-    height: 300px;
+main * {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/********** Buttons *************/
+.home-add-btn, .home-my-houses-btn, .view-btn, .get-addresses, .go-back, .go-back-2, .addBtn {
+	box-shadow:inset 0px 1px 0px 0px #a4e271;
+	/* background:linear-gradient(to bottom, #89c403 5%, #77a809 100%); */
+	background-color:#72D698;
+	/* border-radius:6px; */
+	border:1px solid black;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial, Helvetica, sans-serif;;
+	font-size:20px;
+	font-weight:bold;
+	padding:24px 24px;
+	text-decoration:none;
+    letter-spacing: 2px;
+	/* text-shadow:0px 1px 0px #528009; */
+}
+.home-add-btn:hover, .home-my-houses-btn:hover, .view-btn:hover, .get-addresses:hover, .go-back:hover, .go-back-2:hover, .addBtn:hover {
+	/* background:linear-gradient(to bottom, #77a809 5%, #89c403 100%); */
+	background-color:#6FB27F;
+}
+.home-add-btn:active, .home-my-houses-btn:active, .view-btn:active, .get-addresses:active, .go-back:active, .go-back-2:active, .addBtn:active {
+	position:relative;
+	top:2px;
 }
 
 
-.archived-cards {
-    background-color: greenyellow;
+
+/********** Navbar **************/
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 9vh;
+    background-color: #5599DD;
 }
 
+.navLogo {
+    margin-left: 40px;
+    color: white;
+    font-family: Arial, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 30px;
+}
+
+.navLinks {
+    display: flex;
+    justify-content: space-around;
+    width: 42%;
+    margin-right: 25px;
+}
+
+.navLinks li {
+    list-style: none;
+}
+
+.navLinks a {
+    text-decoration: none;
+    color: white;
+    font-family: Arial, Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    letter-spacing: 2px;
+    font-size: 22px;
+}
+
+
+/************* Home Page **************/
+
+.btn-div {
+    display: flex;
+    justify-content: space-around;
+}
+
+.home-greeting {
+    width: 83%;
+    align-self: center;
+}
+
+.welcome {
+    margin-top: 80px;
+}
+
+.home-add-btn {
+    margin-left: 80px;
+}
+
+.home-my-houses-btn {
+    margin-right: 80px;
+}
+
+
+/*********** My Houses Page *************/
 .hidden {
     display: none;
+}
+
+.houses-btns {
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.card-container {
+    background-color: white;
+    border: 1px solid black;
+    display: flex;
+}
+
+
+.card-pic {
+    height: 300px;
+    min-width: 300px;
+    min-height: 300px;
+    max-width: 400px;
+    border: 1px solid black;
+    margin-left: 30px;
+    margin-right: 30px;
+
+}
+
+.del-btn, .cont-btn, .arch-btn, .uncon-btn, .unarch-btn {
+	box-shadow:inset 0px 1px 0px 0px #a4e271;
+	/* background:linear-gradient(to bottom, #89c403 5%, #77a809 100%); */
+	background-color:#72D698;
+	/* border-radius:6px; */
+	border:1px solid black;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial, Helvetica, sans-serif;;
+	font-size:20px;
+	font-weight:bold;
+	padding:18px 18px;
+	text-decoration:none;
+    letter-spacing: 2px;
+	/* text-shadow:0px 1px 0px #528009; */
+}
+
+.del-btn:hover, .cont-btn:hover, .arch-btn:hover, .uncon-btn:hover, .unarch-btn:hover {
+	/* background:linear-gradient(to bottom, #77a809 5%, #89c403 100%); */
+	background-color:#6FB27F;
+}
+
+.del-btn:active, .cont-btn:active, .arch-btn:active, .uncon-btn:active, .unarch-btn:active {
+	position:relative;
+	top:2px;
+}
+
+.card-info {
+    justify-self: start;
+}
+
+.infoandbuttons {
+    margin-right: 30px;
+    margin-top: 40px;
+    margin-bottom: 40px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 300px;
+    justify-content: space-between;
+}
+
+.infoandbuttons * {
+    margin: 0px;
+}
+
+.btns-div {
+    display: flex;
+    justify-content: space-around;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+h2 {
+    font-size: 35px;
+}
+
+.card-info h3 {
+    font-size: 25px;
+    margin-top: 30px;
+}
+
+.card-info p {
+    margin-top: 3px;
+    font-size: 20px;
+}
+
+.address-div {
+    border: 1px solid black;
+    background-color: white;
+    min-width: 50%;
+    margin-left: 120px;
+    padding-top: 30px;
+    padding-bottom: 5px;
+    margin-right: 60px;
+}
+
+.address-div h4 {
+    margin-left: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    margin-right: 30px;
+    margin-bottom: 35px;
+}
+
+.go-back-2 {
+    align-self: flex-end;
+}
+
+.infoandbuttons h2, .infoandbuttons h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+
+.infoandbuttons p {
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+/************* Add a House ****************/ 
+.formBtn label {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+}
+
+.formBtn input {
+    height:40px;
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.formBtn textarea {
+    font-size: 22px;
+    font-family: Arial, Helvetica, sans-serif;
+
+}
+
+.form-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.input-fields {
+    width: 50%;
+    margin-left: 60px;
+    margin-top: 0px;
+}
+
+.address-input, .notes-input,
+.img-input {
+    width: 100%;
+}
+
+.add-title {
+    margin-top: 60px;
+    margin-bottom: 0px;
+}
+
+
+ 
+.gray-div {
+    background-color: #A7A7A7;
+    border: 1px solid black;
+    width: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 60px;
+    flex-direction: column;
+    margin-top: 0px;
+}
+
+.word-div {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    color: white;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    width: 220px;
+}
+
+.btn, .addBtn {
+    margin-top: 0px;
+}
+
+/************* Resources *****************/ 
+.res-title {
+    margin-top: 60px;
+}
+
+.res-h2, .li-res {
+    font-family: Arial, Helvetica, sans-serif;
+    text-decoration: none;
+}
+
+.res-h2 {
+    margin-left: 60px;
+}
+
+.li-res {
+    font-size: 20px;
+    color: black;
+}
+
+.li-center {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }

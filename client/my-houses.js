@@ -8,6 +8,7 @@ const goBackBtn = document.querySelector('.go-back')
 const getAddressesBtn = document.querySelector('.get-addresses')
 const addressesDiv = document.querySelector('.address-div')
 const goBack2Btn = document.querySelector('.go-back-2')
+const addressContainer = document.querySelector('.address-container')
 
 
 /************* CREATE CARD FUNCTIONS *************/
@@ -16,16 +17,23 @@ function makeHouseCard (houses) {
     
     const houseHTMLElements = 
     `
-    <div class="house-card" id="house-num-${houses['house_id']}">
+    <div class="house-card card-container" id="house-num-${houses['house_id']}">
         <div>
             <img class="card-pic" src="${houses['img']}" alt="House Photo">
         </div>
+        <div class="infoandbuttons">
+
+        <div class="card-info">
         <h2>${houses['address']}</h2>
         <h3>Notes:</h3>
         <p>${houses['notes']}</p>
-        <button onclick="deleteHouse(${houses['house_id']})">Delete</button>
-        <button onclick="archiveHouse(${houses['house_id']}, true)" id="archive-btn">Archive</button>
-        <button onclick="contactedBtn(${houses['house_id']}, false)" id="contact-btn">Contacted</button>
+        </div>
+        <div class="btns-div">
+        <button class="del-btn" onclick="deleteHouse(${houses['house_id']})">Delete</button>
+        <button class="arch-btn" onclick="archiveHouse(${houses['house_id']}, true)" id="archive-btn">Archive</button>
+        <button class="cont-btn" onclick="contactedBtn(${houses['house_id']}, false)" id="contact-btn">Contacted</button>
+        </div>
+        </div>
     </div>
     `
     return houseHTMLElements
@@ -35,17 +43,23 @@ function makeContactedHouseCard (houses) {
     
     const contactedHTMLElements = 
     `
-    <div class="contacted-house-card" id="house-num-${houses['house_id']}">
+    <div class="contacted-house-card card-container" id="house-num-${houses['house_id']}">
         <div>
             <img class="card-pic" src="${houses['img']}" alt="House Photo">
         </div>
+        <div class="infoandbuttons">
+
+        <div class="card-info">
         <h2>${houses['address']}</h2>
-        <h2 class="card-subtitle">Contacted</h2>
         <h3>Notes:</h3>
         <p>${houses['notes']}</p>
-        <button onclick="deleteHouse(${houses['house_id']})">Delete</button>
-        <button onclick="archiveHouse(${houses['house_id']}, true)" id="archive-btn">Archive</button>
-        <button onclick="undoContacted(${houses['house_id']}, true)" id="undo-btn">Undo Contacted</button>
+        </div>
+        <div class="btns-div">
+        <button class="del-btn" onclick="deleteHouse(${houses['house_id']})">Delete</button>
+        <button class="arch-btn" onclick="archiveHouse(${houses['house_id']}, true)" id="archive-btn">Archive</button>
+        <button class="uncon-btn" onclick="undoContacted(${houses['house_id']}, true)" id="undo-btn">Undo Contacted</button>
+        </div>
+        </div>
     </div>
     `
     return contactedHTMLElements
@@ -54,17 +68,23 @@ function makeContactedHouseCard (houses) {
 function makeArchivedCards(houses) {
     const archivedHTMLElements = 
     `
-    <div class="contacted-house-card" id="house-num-${houses['house_id']}">
+    <div class="archived-house-card card-container" id="house-num-${houses['house_id']}">
         <div>
             <img class="card-pic" src="${houses['img']}" alt="House Photo">
         </div>
+        <div class="infoandbuttons">
+        <div class="card-info">
         <h2>${houses['address']}</h2>
-        <h2 class="card-subtitle">Archived</h2>
         <h3>Notes:</h3>
         <p>${houses['notes']}</p>
-        <button onclick="deleteHouse(${houses['house_id']})">Delete</button>
-    </div>
-        <button onclick="undoArchive(${houses['house_id']}, true)">Undo Archive</button>
+        </div>
+        <div class="btns-div">
+        <button class="del-btn" onclick="deleteHouse(${houses['house_id']})">Delete</button>
+        <button class="unarch-btn" onclick="undoArchive(${houses['house_id']}, true)">Undo Archive</button>
+        </div>
+        </div>
+        </div>
+
     `
     return archivedHTMLElements
 }
@@ -72,6 +92,7 @@ function makeArchivedCards(houses) {
 function getAddressHTML (houses) {
     const addressesHTML =
     `
+    
     <h4>${houses['address']}</h4>
     `
     return addressesHTML
@@ -179,6 +200,7 @@ function getAddresses() {
     vewArchivedBtn.classList.toggle('hidden')
     goBack2Btn.classList.toggle('hidden')
     getAddressesBtn.classList.toggle('hidden')
+    addressContainer.classList.toggle('hidden')
 }
 
 function goBack2 () {
@@ -188,6 +210,7 @@ function goBack2 () {
     vewArchivedBtn.classList.toggle('hidden')
     goBack2Btn.classList.toggle('hidden')
     getAddressesBtn.classList.toggle('hidden')
+    addressContainer.classList.toggle('hidden')
 }
 
 

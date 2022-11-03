@@ -8,24 +8,46 @@
     <title>OMH Finder - Add house</title>
 </head>
 <body>
-    <h1>Add House</h1>
-    <a href="/">Home</a>
-    <a href="/addhousepage">Add House</a>
-    <a href="/myhousespage">My Houses</a>
-    <a href="/resourcespage">Resources</a>
+    <nav class="navbar">
+        <div class="navLogo">Off Market House Finder</div>
+        <ul class="navLinks">
+            <li><a href="/">Home</a></li>
+            <li><a href="/addhousepage">Add House</a></li>
+            <li><a href="/myhousespage">My Houses</a></li>
+            <li><a href="/resourcespage">Resources</a></li>
+        </ul>
+        <!-- burger div will go here for phone scale -->
+    </nav>
+    <div class="page-container">
+    <main>
+        <h1 class="add-title">Add a House:</h1>
+        <div class="form-container">
+        <div class="input-fields">
+        <form class="formBtn">
+            <label for="address">Address:</label> <br>
+            <input class="address-input" autocomplete="off" name="address" type="text" placeholder="123 Sloppy Joe Way"> <br>
+            <label for="notes">Notes:</label> <br>
+            <textarea class="notes-input" maxlength="300" cols="50" rows="5" name="notes" type="text" placeholder="looks, feel, taste..."></textarea> <br>
+            <label for="img">Image address:</label> <br>
+            <input class="img-input" autocomplete="off" name="img" type="text" placeholder="www.housepics.com">
+        </div>
+        <div class="gray-div">
+            <div class="word-div">
+            <p>Tips:</p>
+            <p>Address - Use a full address to make letter campaings easier.</p>
+            <p>Notes - Its easy to forget why you thought a house was a good deal. Use lots of detail!</p>
+            <p>Image - Include an image address from a site like zillow, realtor, or even google maps.</p>
+            <p>Looking Good?</p>
+            </div>
+        <div class="btn">
+            <button class="addBtn" type="submit">Add House</button>
+        </form>
+        </div>
+        </div>
+        </div>
 
-    <br>
-    <br>
-
-    <form class="formBtn">
-        <input class="address-input" type="text" placeholder="address">
-        <input class="notes-input" type="text" placeholder="notes">
-        <input class="img-input" type="text" placeholder="img">
-        <button class="addBtn" type="submit">Add House</button>
-    </form>
-
-
-
+    </main>
+    </div>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="/addhousejs"></script>
 </body>

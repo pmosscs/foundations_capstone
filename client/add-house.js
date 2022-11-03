@@ -26,6 +26,8 @@ const submitHouse = (event) => {
     address.value = ''
     notes.value = ''
     img.value = ''
+
+    alert('House Added!')
 }
 
 addBtn.addEventListener('submit', submitHouse);
